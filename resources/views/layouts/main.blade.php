@@ -441,9 +441,7 @@
         <style>
             .form-label,
             h4,
-            .col-form-label {
-                color: teal !important;
-            }
+            .col-form-label {}
         </style>
     @endif
 
@@ -484,12 +482,11 @@
                             </button>
                             
                             @endif --}}
-                          
+
                         </div>
                         <a href="{{ route('dashboard') }}" class="logo logo-light">
                             <span class="logo-sm">
-                                <img src="{{ asset('assets/images/logo-light.svg') }}" alt=""
-                                    height="30">
+                                <img src="{{ asset('assets/images/logo-light.svg') }}" alt="" height="30">
                             </span>
                         </a>
                     </div>
@@ -501,7 +498,22 @@
                 <div class="w-100 ms-4 " id="top-menu-lead">
                     <div class="row align-items-center">
                         <div class="col-11 d-flex text-end p-0">
-                           
+                            @if (isset($data['request_module']))
+                                <div class="userscomman row col-9 text-start align-items-center">
+                                    @if (isset($data['request_status']))
+                                        @php
+                                            $default_active = '';
+                                            foreach ($data['request_status'] as $architect_status_key => $architect_status) {
+                                                $default_active = $architect_status['id'];
+                                                echo '<a href="javascript:void(0)" class="funnel active" data-id="' . $architect_status['id'] . '" id="arc_funnel_' . $architect_status['id'] . '" onclick="ShowSelectedStatusData(' . $architect_status['id'] . ');">' . $architect_status['header_code'] . ' (<span class=""></span>)</a>';
+                                            }
+                                        @endphp
+                                        <input type="hidden" name="arc_active_status" id="arc_active_status"
+                                            value="{{ $default_active }}">
+                                    @endif
+                                </div>
+                            @endif
+
                         </div>
                         <div class="col-1 text-end">
                             <div class="dropdown d-inline-block">
@@ -700,6 +712,12 @@
                         <a href="{{ route('crm.lead.account.contact.table') }}" class="waves-effect">
                             <i class="bx bxs-user-detail"></i>
                             <span key="t-lead">Contacts</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('request.table') }}" class="waves-effect">
+                            <i class="bx bxs-user-detail"></i>
+                            <span key="t-lead">Request</span>
                         </a>
                     </li>
 
@@ -919,7 +937,7 @@
         fingerprint = fingerprint + '\n getCanvasPrint : ' + client.getCanvasPrint();
         // console.log(fingerprint);
     </script>
-
+   
 
     @yield('custom-scripts')
     @include('master_search.script')

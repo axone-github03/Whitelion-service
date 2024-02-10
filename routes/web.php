@@ -40,6 +40,7 @@ use App\Http\Controllers\CRM\Lead\LeadTaskController;
 use App\Http\Controllers\CRM\Lead\LeadMeetingController;
 use App\Http\Controllers\CRM\Lead\LeadCallController;
 use App\Http\Controllers\CRM\Lead\LeadController;
+use App\Http\Controllers\Request\RequestController;
 
 /*
 |--------------------------------------------------------------------------
@@ -419,4 +420,10 @@ Route::group(["middleware" => "auth"], function () {
 
 	Route::get('/quot-get-brand-list', [QuotationMasterController::class, "GetBrandList"])->name('quot.get.brand.list'); // new update
 	Route::post('/quot-discount-approved-or-reject', [QuotationMasterController::class, "SaveDiscountApprovedOrReject"])->name('quot.discount.approved.or.reject'); // new update
+
+	Route::get('/request-index', [RequestController::class, 'index'])->name('request.index');
+	Route::get('/request-table', [RequestController::class, 'table'])->name('request.table');
+	Route::post('/request-save', [RequestController::class, 'save'])->name('request.save');
+	Route::post('/request-ajax', [RequestController::class, 'ajax'])->name('request.ajax');
+	Route::get('/request-search-customer', [RequestController::class, 'searchCustomer'])->name('request.search.customer');
 });

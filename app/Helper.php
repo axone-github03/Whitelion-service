@@ -2165,3 +2165,52 @@ function saveNotificationScheduler($params)
     $NotificationScheduler->entryip = $params['entryip'];
     $NotificationScheduler->save();
 }
+
+function getRequestStatus()
+{
+    $RequestStatus = [];
+
+    $RequestStatus[0]['id'] = 0;
+    $RequestStatus[0]['name'] = 'Register';
+    $RequestStatus[0]['code'] = 'Register';
+    $RequestStatus[0]['header_code'] = 'Registered';
+    $RequestStatus[0]['sequence_id'] = 4;
+    $RequestStatus[0]['access_user_type'] = [0, 9];
+
+    $RequestStatus[1]['id'] = 1;
+    $RequestStatus[1]['name'] = 'Pending Data';
+    $RequestStatus[1]['code'] = 'Pending Data';
+    $RequestStatus[1]['header_code'] = 'Pending Data';
+    $RequestStatus[1]['sequence_id'] = 3;
+    $RequestStatus[1]['access_user_type'] = [0];
+
+    $RequestStatus[2]['id'] = 2;
+    $RequestStatus[2]['name'] = 'Work in Progress';
+    $RequestStatus[2]['code'] = 'Work in Progress';
+    $RequestStatus[2]['header_code'] = 'Work in Progress';
+    $RequestStatus[2]['sequence_id'] = 1;
+    $RequestStatus[2]['access_user_type'] = [0, 9];
+
+    $RequestStatus[3]['id'] = 3;
+    $RequestStatus[3]['name'] = 'Complete';
+    $RequestStatus[3]['code'] = 'Complete';
+    $RequestStatus[3]['header_code'] = 'Complete';
+    $RequestStatus[3]['sequence_id'] = 5;
+    $RequestStatus[3]['access_user_type'] = [0, 9];
+
+    $RequestStatus[4]['id'] = 4;
+    $RequestStatus[4]['name'] = 'Total';
+    $RequestStatus[4]['code'] = 'Total';
+    $RequestStatus[4]['header_code'] = 'Total';
+    $RequestStatus[4]['sequence_id'] = 2;
+    $RequestStatus[4]['access_user_type'] = [9];
+
+    $RequestStatus[5]['id'] = 5;
+    $RequestStatus[5]['name'] = 'Disputes';
+    $RequestStatus[5]['code'] = 'Disputes';
+    $RequestStatus[5]['header_code'] = 'Disputes';
+    $RequestStatus[5]['sequence_id'] = 7;
+    $RequestStatus[5]['access_user_type'] = [0, 9];
+
+    return $RequestStatus;
+}

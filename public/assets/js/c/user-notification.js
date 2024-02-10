@@ -9,69 +9,67 @@ var notificationBadge = 0;
 //     getUserNotificationBadge();
 // }, 5000);
 
-getUserNotificationBadge();
-var justUpdateNotificationBadge = 0;
+// getUserNotificationBadge();
+// var justUpdateNotificationBadge = 0;
 
-function getUserNotificationBadge() {
-
-
-    $.ajax({
-        url: ajaxGetUserNotificationBadge,
-        type: 'GET',
-        success: function(res) {
-
-            if (res['status'] == 1) {
+// function getUserNotificationBadge() {
 
 
+//     $.ajax({
+//         url: ajaxGetUserNotificationBadge,
+//         type: 'GET',
+//         success: function(res) {
 
-                if ($("#side_tab_no_of_marketing_pending").length > 0) {
-                    if (res['no_of_marketing_pending'] == 0) {
-                        res['no_of_marketing_pending'] = "";
-                    }
-                    $("#side_tab_no_of_marketing_pending").html(res['no_of_marketing_pending']);
-                }
-
-                if ($("#side_tab_no_of_marketing_challan_pending").length > 0) {
-                    if (res['no_of_marketing_challan_pending'] == 0) {
-                        res['no_of_marketing_challan_pending'] = "";
-                    }
-                    $("#side_tab_no_of_marketing_challan_pending").html(res['no_of_marketing_challan_pending']);
-                }
-
-                if ($("#side_tab_no_of_marketing_challan_raised").length > 0) {
-
-                    if (res['no_of_marketing_challan_raised'] == 0) {
-                        res['no_of_marketing_challan_raised'] = "";
-                    }
-                    $("#side_tab_no_of_marketing_challan_raised").html(res['no_of_marketing_challan_raised']);
-                }
+//             if (res['status'] == 1) {
 
 
-                if ($("#side_tab_no_of_marketing_challan_packed").length > 0) {
 
-                    if (res['no_of_marketing_challan_packed'] == 0) {
-                        res['no_of_marketing_challan_packed'] = "";
-                    }
-                    $("#side_tab_no_of_marketing_challan_packed").html(res['no_of_marketing_challan_packed']);
-                }
+//                 if ($("#side_tab_no_of_marketing_pending").length > 0) {
+//                     if (res['no_of_marketing_pending'] == 0) {
+//                         res['no_of_marketing_pending'] = "";
+//                     }
+//                     $("#side_tab_no_of_marketing_pending").html(res['no_of_marketing_pending']);
+//                 }
 
-                if ($("#side_tab_no_of_gift_order").length > 0) {
+//                 if ($("#side_tab_no_of_marketing_challan_pending").length > 0) {
+//                     if (res['no_of_marketing_challan_pending'] == 0) {
+//                         res['no_of_marketing_challan_pending'] = "";
+//                     }
+//                     $("#side_tab_no_of_marketing_challan_pending").html(res['no_of_marketing_challan_pending']);
+//                 }
 
-                    if (res['no_of_gift_order'] == 0) {
-                        res['no_of_gift_order'] = "";
-                    }
-                    $("#side_tab_no_of_gift_order").html(res['no_of_gift_order']);
-                }
+//                 if ($("#side_tab_no_of_marketing_challan_raised").length > 0) {
 
-                if ($("#side_tab_no_of_order").length > 0) {
-
-                    if (res['no_of_order'] == 0) {
-                        res['no_of_order'] = "";
-                    }
-                    $("#side_tab_no_of_order").html(res['no_of_order']);
-                }
+//                     if (res['no_of_marketing_challan_raised'] == 0) {
+//                         res['no_of_marketing_challan_raised'] = "";
+//                     }
+//                     $("#side_tab_no_of_marketing_challan_raised").html(res['no_of_marketing_challan_raised']);
+//                 }
 
 
+//                 if ($("#side_tab_no_of_marketing_challan_packed").length > 0) {
+
+//                     if (res['no_of_marketing_challan_packed'] == 0) {
+//                         res['no_of_marketing_challan_packed'] = "";
+//                     }
+//                     $("#side_tab_no_of_marketing_challan_packed").html(res['no_of_marketing_challan_packed']);
+//                 }
+
+//                 if ($("#side_tab_no_of_gift_order").length > 0) {
+
+//                     if (res['no_of_gift_order'] == 0) {
+//                         res['no_of_gift_order'] = "";
+//                     }
+//                     $("#side_tab_no_of_gift_order").html(res['no_of_gift_order']);
+//                 }
+
+//                 if ($("#side_tab_no_of_order").length > 0) {
+
+//                     if (res['no_of_order'] == 0) {
+//                         res['no_of_order'] = "";
+//                     }
+//                     $("#side_tab_no_of_order").html(res['no_of_order']);
+//                 }
 
 
 
@@ -79,44 +77,46 @@ function getUserNotificationBadge() {
 
 
 
-                if (res['unread'] == 0) {
-                    $("#notification-badge-count").html('');
-                } else {
-                    $("#notification-badge-count").html(res['unread']);
-                }
-
-                if (res['has_request'] == 1) {
-                    if (res['pending_request'] == 0) {
-                        res['pending_request'] = "";
-
-                    }
-                    $("#notification-badge-pending-request").html(res['pending_request']);
-
-                }
-
-                if (justUpdateNotificationBadge == 0) {
-
-                    if (notificationBadge != res['unread']) {
-                        getNotificationContent();
-                        notificationBadge = res['unread'];
-
-                    }
-
-                } else {
-                    justUpdateNotificationBadge = 0;
-
-                }
 
 
+//                 if (res['unread'] == 0) {
+//                     $("#notification-badge-count").html('');
+//                 } else {
+//                     $("#notification-badge-count").html(res['unread']);
+//                 }
+
+//                 if (res['has_request'] == 1) {
+//                     if (res['pending_request'] == 0) {
+//                         res['pending_request'] = "";
+
+//                     }
+//                     $("#notification-badge-pending-request").html(res['pending_request']);
+
+//                 }
+
+//                 if (justUpdateNotificationBadge == 0) {
+
+//                     if (notificationBadge != res['unread']) {
+//                         getNotificationContent();
+//                         notificationBadge = res['unread'];
+
+//                     }
+
+//                 } else {
+//                     justUpdateNotificationBadge = 0;
+
+//                 }
 
 
-            }
-
-        }
-    });
 
 
-}
+//             }
+
+//         }
+//     });
+
+
+// }
 
 $(".notification-tab").click(function() {
     getNotificationContent();
